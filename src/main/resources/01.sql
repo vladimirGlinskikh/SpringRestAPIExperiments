@@ -29,9 +29,9 @@ CREATE TABLE authorities
 );
 
 INSERT INTO my_db.users (username, password, enabled)
-VALUES ('Vladimir', '{noop}vl', 1),
-       ('Svetlana', '{noop}sv', 1),
-       ('Aleksandr', '{noop}al', 1);
+VALUES ('Vladimir', '{bcrypt}$2a$10$2rwezGo58XrDFiGUXlI5muOUxWEsJPH2JwLg8CyKruCOU2QCNL2di', 1),
+       ('Svetlana', '{bcrypt}$2a$10$E7/FarWb0p4MoT1hcuDQNuiw9h6RofE72K.Vtb6z4hzLvhqsKcBb2', 1),
+       ('Aleksandr', '{bcrypt}$2a$10$xWiKLp2drwRx2p3AhZLpm.X2HT8plo3WgES1PbPmawgvek9vGowjO', 1);
 
 INSERT INTO my_db.authorities (username, authority)
 VALUES ('Vladimir', 'ROLE_EMPLOYEE'),
