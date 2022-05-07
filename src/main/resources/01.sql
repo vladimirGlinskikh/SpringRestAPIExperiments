@@ -13,9 +13,37 @@ CREATE TABLE employees
     PRIMARY KEY (id)
 );
 
+CREATE TABLE users
+(
+    username varchar(15),
+    password varchar(100),
+    enabled  tinyint(1),
+    PRIMARY KEY (username)
+);
+
+CREATE TABLE authorities
+(
+    username  varchar(15),
+    authority varchar(25),
+    FOREIGN KEY (username) references users (username)
+);
+
+INSERT INTO my_db.users (username, password, enabled)
+VALUES ('Vladimir', '{noop}vl', 1),
+       ('Svetlana', '{noop}sv', 1),
+       ('Aleksandr', '{noop}al', 1);
+
+INSERT INTO my_db.authorities (username, authority)
+VALUES ('Vladimir', 'ROLE_EMPLOYEE'),
+       ('Svetlana', 'ROLE_HR'),
+       ('Svetlana', 'ROLE_HR'),
+       ('Aleksandr', 'ROLE_MANAGER');
+
 INSERT INTO employees(name, surname, department, salary)
 VALUES ('Vladimir', 'Glinskikh', 'IT', 800),
        ('Nikolay', 'Romanov', 'Sales', 700),
        ('Svetlana', 'Svetina', 'HR', 890);
 
 SELECT * FROM employees;
+SELECT * FROM users;
+SELECT * FROM authorities;

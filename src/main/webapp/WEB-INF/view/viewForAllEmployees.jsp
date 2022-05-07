@@ -7,14 +7,14 @@
 <body>
 <h3>Information for all employees</h3>
 <br><br>
-<security:authorize access="hasRole('DEVELOPER')">
+<security:authorize access="hasRole('HR')">
     <input type="button" value="Salary"
            onclick="window.location.href = 'hrInfo'">
     Only for HR staff
 </security:authorize>
 
 <br><br>
-<security:authorize access="hasRole('HR')">
+<security:authorize access="hasRole('MANAGER')">
     <input type="button" value="Performance"
            onclick="window.location.href = 'managerInfo'">
     Only for managers
